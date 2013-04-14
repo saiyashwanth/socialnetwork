@@ -9,7 +9,7 @@ High Level==================
 
 /friends
 	/invite
-	/privacy
+	/privacy (upcoming)
 		not friend - only see profile information
 		friend - see all posts 
 		both - send message
