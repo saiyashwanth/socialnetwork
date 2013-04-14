@@ -15,8 +15,8 @@ High Level==================
 		both - send message
 /posts
 	/status updates (upcoming)
-		.comment
-		.likes
+		comment
+		likes
 	post on friends walls
 Database=====================
 /accounts
