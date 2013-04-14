@@ -14,7 +14,7 @@ High Level==================
 		friend - see all posts 
 		both - send message
 /posts
-	/status updates
+	/status updates (upcoming)
 		.comment
 		.likes
 	post on friends walls
