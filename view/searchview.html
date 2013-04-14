@@ -1,0 +1,61 @@
+<html>
+	<head>
+		<link rel='stylesheet' type="text/css" href='bootstrap/css/bootstrap.css'>
+		<style>
+			.container{
+				margin-top:20px;
+			}
+			input[type="text"]{
+				height:40px;
+				width:80%;
+			}
+			.time{
+				color:gray;
+			}
+			.active{
+				color:gray;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="span10">
+					<h4> Welcome, <?php echo $_SESSION['name']; ?> </h4>
+				</div>
+				<div class="span2">
+					<h4><a href="logout.php">Log Out </a></h4>
+				</div>
+			</div>
+			<div class="row" >
+				<div class="span4" id="sidebar">
+					<a href="home.php">Home</a><br>
+					<a href=<?php echo 'profile.php?id='.$_SESSION['id'];?>> Profile</a><br>
+					<a href="search.php">Search</a><br>
+					<a href="invites.php">Invites</a><br>
+				</div>
+				<div class="span8">
+					<div>
+						<b>Search for people</b> 		
+						<input type="text" id="contentbox" placeholder="Type name, email, or school...">
+						<button class="btn btn-primary" id="search">Post</button>
+					</div>
+					<hr>
+					<div id="searchresults"></div>
+					
+				</div>
+			</div>
+			
+		</div>
+	</body>
+	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+	<script>
+		$("#search").click(function(){
+			var value = $('#contentbox').val();
+			$.post("search.php", {content: value}, function(data){
+				$('#searchresults').html(data);
+			});
+			$('#contentbox').val('');
+		});
+	</script>
+</html>
