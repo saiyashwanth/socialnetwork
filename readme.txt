@@ -48,7 +48,8 @@ CREATE TABLE `friends` (`firstperson` INT(11), `secondperson` INT(11));
 
 CREATE TABLE `invite` (`initiator` INT(11), `respondent` INT(11));
 
-CREATE TABLE `posts` (`id` INT(11), `timestamp` DATE, `poster` INT(11), `receiver` INT(11));
+CREATE TABLE `posts` (`id` INT(11), `content` TEXT, `timestamp` DATE, `poster` INT(11), `receiver` INT(11), `postername` TEXT, `receivername` TEXT);
+
 
 
 
