@@ -9,15 +9,10 @@ High Level==================
 
 /friends
 	/invite
-	/privacy (upcoming)
-		not friend - only see profile information
-		friend - see all posts 
-		both - send message
+
 /posts
-	/status updates (upcoming)
-		comment
-		likes
-	post on friends walls
+	/status updates
+	/post on friends walls
 Database=====================
 /accounts
 	id - INT AUTO INCREMENT
