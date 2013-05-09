@@ -19,18 +19,20 @@
 			if(mysql_num_rows($query) == 0){
 				$query = mysql_query("SELECT * FROM posts WHERE poster = '$id' ORDER BY timestamp DESC");
 			}
-			$posts = array();
-			while($row = mysql_fetch_array($query)){
-				$posterid = $row['poster'];
-				$receiverid = $row['receiver'];
-				$postername = $row['postername'];
-				$receivername = $row['receivername'];
-				$content = $row['content'];
-				$time = $row['timestamp'];
-				$json_data = json_encode(array("postername"=>$postername, "receivername"=>$receivername, "posterid"=>$posterid, "receiverid"=>$receiverid, "content"=>$content, "time"=>$time));
-				$posts[] = $json_data;
+			if($query){
+				$posts = array();
+				while($row = mysql_fetch_array($query)){
+					$posterid = $row['poster'];
+					$receiverid = $row['receiver'];
+					$postername = $row['postername'];
+					$receivername = $row['receivername'];
+					$content = $row['content'];
+					$time = $row['timestamp'];
+					$json_data = json_encode(array("postername"=>$postername, "receivername"=>$receivername, "posterid"=>$posterid, "receiverid"=>$receiverid, "content"=>$content, "time"=>$time));
+					$posts[] = $json_data;
+				}
+				return json_encode($posts);
 			}
-			return json_encode($posts);
 		}
 	
 		public function get_personal_posts($id){
@@ -40,18 +42,20 @@
 			if(mysql_num_rows($query) == 0){
 				$query = mysql_query("SELECT * FROM posts WHERE poster = '$id' ORDER BY timestamp DESC");
 			}
-			$posts = array();
-			while($row = mysql_fetch_array($query)){
-				$posterid = $row['poster'];
-				$receiverid = $row['receiver'];
-				$postername = $row['postername'];
-				$receivername = $row['receivername'];
-				$content = $row['content'];
-				$time = $row['timestamp'];
-				$json_data = json_encode(array("postername"=>$postername, "receivername"=>$receivername, "posterid"=>$posterid, "receiverid"=>$receiverid, "content"=>$content, "time"=>$time));
-				$posts[] = $json_data;
+			if($query){
+				$posts = array();
+				while($row = mysql_fetch_array($query)){
+					$posterid = $row['poster'];
+					$receiverid = $row['receiver'];
+					$postername = $row['postername'];
+					$receivername = $row['receivername'];
+					$content = $row['content'];
+					$time = $row['timestamp'];
+					$json_data = json_encode(array("postername"=>$postername, "receivername"=>$receivername, "posterid"=>$posterid, "receiverid"=>$receiverid, "content"=>$content, "time"=>$time));
+					$posts[] = $json_data;
+				}
+				return json_encode($posts);
 			}
-			return json_encode($posts);
 		}
 		
 		

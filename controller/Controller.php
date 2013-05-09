@@ -5,13 +5,13 @@
 	
 	$server_name = "localhost";
 	$username="root";
-	$password="<REPLACE WITH YOUR MYSQL PASSWORD>";
+	$password="<Your Password Here>";
 	$db_name = "socialnetwork";
 	
-	if(!(@mysql_ping())){
+	//if(!(@mysql_ping())){
 		mysql_connect($server_name, $username, $password) or die ("cannot connect");
 		mysql_select_db($db_name) or die ("cannot select database");
-	}
+	//}
 	session_start();
 
 	class Controller {
@@ -125,12 +125,14 @@
 					$name = $_POST['name'];
 					$birthday = $_POST['birthday'];
 					$school = $_POST['school'];
-					$this->account->create_account($name, $email, $password, $birthday, $school);
-					$id = $this->account->get_id($email);
-					$_SESSION['email'] = $email;
-					$_SESSION['name'] = $name;
-					$_SESSION['id'] = $id;
-					header('Location:index.php');
+					$creation = $this->account->create_account($name, $email, $password, $birthday, $school);
+					if($creation){
+						$id = $this->account->get_id($email);
+						$_SESSION['email'] = $email;
+						$_SESSION['name'] = $name;
+						$_SESSION['id'] = $id;
+						header('Location:index.php');
+					}
 				}
 				//logging in
 				else {

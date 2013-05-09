@@ -12,11 +12,13 @@ class Account{
 	}
 	
 	public function create_account($name, $email, $password, $birthday, $school){
-		if(!($this->account_exists($email))){
+		if($this->account_exists($email) == false){
 			mysql_query("INSERT INTO accounts (name, email, password, birthday, school) VALUES ('$name', '$email','$password', '$birthday', '$school')");
+			return true;
 		}
 		else{
 			echo "This email has already been taken";
+			return false;
 		}
 	}
 	
